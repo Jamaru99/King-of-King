@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  private Animator animator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  private float speed = 5f;
+
+  void Start()
+  {
+    animator = GetComponent<Animator>();
+  }
+
+  void FixedUpdate()
+  {
+    HandleMovement();
+  }
+
+  void HandleMovement()
+  {
+    float horizontal = Input.GetAxis("Horizontal");
+    bool isWalking = horizontal != 0;
+    float amtToMove = horizontal * speed * Time.deltaTime;
+    transform.Translate(Vector3.right * amtToMove);
+    animator.SetBool("isWalking", isWalking);
+  }
 }

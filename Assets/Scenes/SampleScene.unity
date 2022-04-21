@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 865044591}
   - component: {fileID: 865044590}
   - component: {fileID: 865044589}
+  - component: {fileID: 865044592}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -525,7 +526,7 @@ Animator:
   m_GameObject: {fileID: 865044588}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08a0731455b07ab588626cffce1e9c0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4572d0bbca273ec418b7fc40f343dc1b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -600,6 +601,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &865044592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865044588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba28456a5ee859a41832b1e744c7cfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &869985575
 GameObject:
   m_ObjectHideFlags: 0
