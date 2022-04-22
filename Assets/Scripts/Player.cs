@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
   void HandleJump()
   {
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (Input.GetKey(KeyCode.UpArrow))
     {
       rigidBody2D.AddForce(Vector2.up * jumpForce);
     }

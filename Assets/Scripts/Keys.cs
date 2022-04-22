@@ -6,4 +6,7 @@ public class Keys
 {
   public const string KeyAnimatorIsWalking = "isWalking";
   public const string KeyAxisHorizontal = "Horizontal";
+
+  // Tags
+  public const string TagPlayer = "Player";
 }
