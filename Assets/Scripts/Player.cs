@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
   private Animator animator;
 
   private float speed = 5f;
-  private bool isFacingLeft = false;
 
   void Start()
   {
@@ -35,15 +34,17 @@ public class Player : MonoBehaviour
 
   void HandleRotation()
   {
-    if (Input.GetKey(KeyCode.LeftArrow) && !isFacingLeft)
+    Quaternion leftDirection = new Quaternion(0, 180, 0, 0);
+    Quaternion rightDirection = new Quaternion(0, 0, 0, 0);
+
+    if (Input.GetKey(KeyCode.LeftArrow))
     {
-      isFacingLeft = true;
-      transform.Rotate(0, 180, 0);
+      transform.rotation = leftDirection;
     }
-    if (Input.GetKey(KeyCode.RightArrow) && isFacingLeft)
+
+    if (Input.GetKey(KeyCode.RightArrow))
     {
-      isFacingLeft = false;
-      transform.Rotate(0, 180, 0);
+      transform.rotation = rightDirection;
     }
   }
 }
