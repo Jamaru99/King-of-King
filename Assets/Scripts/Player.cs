@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static Keys;
+using static Constants;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     HandleMovement();
     HandleRotation();
     HandleJump();
+    HandleAttack();
   }
 
   void HandleMovement()
@@ -67,9 +68,19 @@ public class Player : MonoBehaviour
     }
   }
 
+  void HandleAttack()
+  {
+    bool input = Input.GetKey(KeyCode.Space);
+
+    if (input)
+    {
+      animator.Play(KeyAnimatorPlayerAttack, 0, 0.4f);
+    }
+  }
+
   void OnCollisionEnter2D(Collision2D other)
   {
-    if (other.gameObject.tag == "Floor")
+    if (other.gameObject.tag == TagFloor)
     {
       isJumping = false;
     }
