@@ -7,18 +7,22 @@ using static Keys;
 public class Player : MonoBehaviour
 {
   private Animator animator;
+  private Rigidbody2D rigidBody2D;
 
   private float speed = 5f;
+  private float jumpForce = 400f;
 
   void Start()
   {
     animator = GetComponent<Animator>();
+    rigidBody2D = GetComponent<Rigidbody2D>();
   }
 
   void FixedUpdate()
   {
     HandleMovement();
     HandleRotation();
+    HandleJump();
   }
 
   void HandleMovement()
@@ -45,6 +49,14 @@ public class Player : MonoBehaviour
     if (Input.GetKey(KeyCode.RightArrow))
     {
       transform.rotation = rightDirection;
+    }
+  }
+
+  void HandleJump()
+  {
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      rigidBody2D.AddForce(Vector2.up * jumpForce);
     }
   }
 }
