@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SmallPlatform : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  public float minY;
+  public float maxY;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  void Start()
+  {
+    float posX = Random.Range(-100f, 100f);
+    float posY = Random.Range(minY, maxY);
+
+    transform.position = new Vector2(posX, posY);
+  }
 }

@@ -9,8 +9,9 @@ public class Player : MonoBehaviour
   private Animator animator;
   private Rigidbody2D rigidBody2D;
 
-  private float speed = 5f;
-  private float jumpForce = 400f;
+  private float speed = 8f;
+  private float jumpForce = 800f;
+  private bool isJumping = false;
 
   void Start()
   {
@@ -41,12 +42,15 @@ public class Player : MonoBehaviour
     Quaternion leftDirection = new Quaternion(0, 180, 0, 0);
     Quaternion rightDirection = new Quaternion(0, 0, 0, 0);
 
-    if (Input.GetKey(KeyCode.LeftArrow))
+    bool inputLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
+    bool inputRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+
+    if (inputLeft)
     {
       transform.rotation = leftDirection;
     }
 
-    if (Input.GetKey(KeyCode.RightArrow))
+    if (inputRight)
     {
       transform.rotation = rightDirection;
     }
@@ -54,9 +58,20 @@ public class Player : MonoBehaviour
 
   void HandleJump()
   {
-    if (Input.GetKey(KeyCode.UpArrow))
+    bool input = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
+
+    if (input && !isJumping)
     {
+      isJumping = true;
       rigidBody2D.AddForce(Vector2.up * jumpForce);
+    }
+  }
+
+  void OnCollisionEnter2D(Collision2D other)
+  {
+    if (other.gameObject.tag == "Floor")
+    {
+      isJumping = false;
     }
   }
 }
