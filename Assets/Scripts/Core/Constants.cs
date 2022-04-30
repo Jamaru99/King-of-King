@@ -6,7 +6,8 @@ public class Constants
 {
   // Animator
   public const string KeyAnimatorIsWalking = "isWalking";
-  public const string KeyAnimatorPlayerAttack = "PlayerAttack";
+  public const string KeyAnimatorPlayerAttack = "Attack";
+  public const string KeyAnimatorSpeed = "Speed";
 
   // Axis keys
   public const string KeyAxisHorizontal = "Horizontal";

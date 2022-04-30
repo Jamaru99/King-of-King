@@ -6,11 +6,11 @@ using static Constants;
 
 public class Player : MonoBehaviour
 {
+
+  [SerializeField] private float speed = 8f;
+  [SerializeField] private float jumpForce = 800f;
   private Animator animator;
   private Rigidbody2D rigidBody2D;
-
-  private float speed = 8f;
-  private float jumpForce = 800f;
   private bool isJumping = false;
 
   void Start()
@@ -30,12 +30,10 @@ public class Player : MonoBehaviour
   void HandleMovement()
   {
     float horizontal = Input.GetAxis(KeyAxisHorizontal);
-    bool isWalking = horizontal != 0;
-    float amtToMove = horizontal * speed * Time.deltaTime;
+    float amountToMove = horizontal * speed * Time.deltaTime;
 
-    transform.position += Vector3.right * amtToMove;
-
-    animator.SetBool(KeyAnimatorIsWalking, isWalking);
+    transform.position += Vector3.right * amountToMove;
+    animator.SetFloat(Constants.KeyAnimatorSpeed, Mathf.Abs(amountToMove));
   }
 
   void HandleRotation()
@@ -70,11 +68,9 @@ public class Player : MonoBehaviour
 
   void HandleAttack()
   {
-    bool input = Input.GetKey(KeyCode.Space);
-
-    if (input)
+    if (Input.GetKey(KeyCode.Space))
     {
-      animator.Play(KeyAnimatorPlayerAttack, 0, 0.4f);
+      animator.SetTrigger(Constants.KeyAnimatorPlayerAttack);
     }
   }
 
