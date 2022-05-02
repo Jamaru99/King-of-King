@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3992315592853257688}
   - component: {fileID: 3992315592853257690}
   - component: {fileID: 3992315592853257689}
+  - component: {fileID: 5179471404941144965}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -118,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba28456a5ee859a41832b1e744c7cfe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  jumpForce: 800
 --- !u!50 &3992315592853257690
 Rigidbody2D:
   serializedVersion: 4
@@ -177,3 +180,16 @@ PolygonCollider2D:
       - {x: 0.19, y: -0.555}
       - {x: 0.26969135, y: -0.5359259}
       - {x: 0.28, y: 0.555}
+--- !u!114 &5179471404941144965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992315592853257668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7d82cf1a8c06a4a81b087d92363bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 15
