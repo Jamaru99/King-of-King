@@ -15,4 +15,5 @@ public class Constants
   // Tags
   public const string TagPlayer = "Player";
   public const string TagFloor = "Floor";
+  public const string TagDeadline = "Deadline";
 }
