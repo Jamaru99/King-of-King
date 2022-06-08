@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using static Constants;
 
 public class Player : MonoBehaviour
 {
@@ -13,13 +12,13 @@ public class Player : MonoBehaviour
   private Rigidbody2D rigidBody2D;
   private bool isJumping = false;
 
-  void Start()
+  private void Start()
   {
     animator = GetComponent<Animator>();
     rigidBody2D = GetComponent<Rigidbody2D>();
   }
 
-  void FixedUpdate()
+  private void FixedUpdate()
   {
     HandleMovement();
     HandleRotation();
@@ -27,7 +26,7 @@ public class Player : MonoBehaviour
     HandleAttack();
   }
 
-  void HandleMovement()
+  private void HandleMovement()
   {
     float horizontal = Input.GetAxis(KeyAxisHorizontal);
     float amountToMove = horizontal * speed * Time.deltaTime;
@@ -36,7 +35,7 @@ public class Player : MonoBehaviour
     animator.SetFloat(Constants.KeyAnimatorSpeed, Mathf.Abs(amountToMove));
   }
 
-  void HandleRotation()
+  private void HandleRotation()
   {
     Quaternion leftDirection = new Quaternion(0, 180, 0, 0);
     Quaternion rightDirection = new Quaternion(0, 0, 0, 0);
@@ -55,7 +54,7 @@ public class Player : MonoBehaviour
     }
   }
 
-  void HandleJump()
+  private void HandleJump()
   {
     bool input = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
 
@@ -74,7 +73,7 @@ public class Player : MonoBehaviour
     }
   }
 
-  void OnCollisionEnter2D(Collision2D other)
+  private void OnCollisionEnter2D(Collision2D other)
   {
     if (other.gameObject.tag == TagFloor)
     {
